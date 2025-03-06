@@ -27,4 +27,10 @@ public class LoginDataService {
     public LoginDataDto login(String iusername, String ipassword) {
         return loginDataMapper.findByUsernameAndPassword(iusername, ipassword);
     }
+    
+    public boolean isMyidCheck(String id)
+	{
+		return loginDataMapper.checkMyid(id)==1?true:false;
+	}
+	
 }

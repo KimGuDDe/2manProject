@@ -14,5 +14,8 @@
 	</select>
 	<select id="findByUsernameAndPassword" resultType="LoginDataDto">
     SELECT * FROM logindata WHERE iusername = #{iusername} AND ipassword = #{ipassword}
-	</select>	
+	</select>
+	<select id="checkMyid" parameterType="String" resultType="int">
+		select count(*) from logindata where id=#{id}
+	</select>
 </mapper>
