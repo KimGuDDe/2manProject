@@ -1,7 +1,6 @@
 package login.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
-
 import login.dto.LoginDataDto;
 
 @Mapper
