@@ -17,7 +17,6 @@ spring:
   
 #mybatis setting
 mybatis:
-  type-aliases-package: data.dto
+  type-aliases-package: login.dto
   mapper-locations:
   - /mapper/**/*.xml
-
