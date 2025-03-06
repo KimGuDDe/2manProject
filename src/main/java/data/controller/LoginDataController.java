@@ -83,6 +83,8 @@ public class LoginDataController {
             model.addAttribute("error", "Invalid username or password");
             System.out.println("login fail");
         }
+    
+        System.out.println("user:"+user);
         
         return "/";
     }  
