@@ -30,7 +30,7 @@ public class LoginDataController {
     @GetMapping("/register")
     public String showRegistrationForm(Model model) {
         model.addAttribute("loginData", new LoginDataDto());
-        return "/loginData/loginmain";
+        return "/member/register";
     }
 
     @PostMapping("/register")
@@ -48,12 +48,12 @@ public class LoginDataController {
         }
         
         loginDataService.insertLoginData(loginDataDto);
-        return "redirect:/main/mainpage";
+        return "redirect:/";
     }
 
     @GetMapping("/login")
     public String showLoginForm() {
-        return "login";
+        return "member/login";
     }
 
     @PostMapping("/login")
@@ -61,10 +61,12 @@ public class LoginDataController {
         LoginDataDto user = loginDataService.login(iusername, ipassword);
         if (user != null) {
             model.addAttribute("user", user);
-            return "welcome";
+            System.out.println("login success");
+            return "/";
         } else {
             model.addAttribute("error", "Invalid username or password");
-            return "login";
+            System.out.println("login fail");
+            return "/";
         }
     }
 }
