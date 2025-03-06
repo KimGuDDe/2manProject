@@ -20,3 +20,4 @@ mybatis:
   type-aliases-package: data.dto
   mapper-locations:
   - /mapper/**/*.xml
+
