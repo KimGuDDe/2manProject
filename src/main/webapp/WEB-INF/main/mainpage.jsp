@@ -20,30 +20,56 @@
 body * {
 	font-family: 'Jua';
 }
+
+.container {
+	display: flex;
+	height: 100vh;
+}
+
+.image-section {
+	flex: 1;
+	background-image: url('./mainbackground.png'); /* 이미지 URL을 넣으세요 */
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.login-form {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #f4f4f4;
+}
 </style>
 </head>
 <body>
 	<jsp:include page="../../layout/title.jsp" />
-	<div class="main" style="background-image: url('./mainbackground.png'); background-repeat: no-repeat; background-size: cover; background-position: center; height: 100vh;">
-		<section class="intro" style="text-align: center;">
-			<img src="./maincenter.png">
-		</section>
-		<br>
-		<br>
-		<section class="intro1" style="text-align: center;">
-        <h2>환영합니다! 고객님!</h2>
-        <p style="font-size:1.3em;">계약 중개로 인테리어 고객의 편의성과 만족도를 높이는 것을 목표로 합니다</p>        
-    	</section>    
-    	<section class="menutitle" style="text-align: center;">
-	        <button>
-	            <h3>주거 인테리어</h3>
-	            <p>주거 공간을 아름답고 실용적으로 디자인합니다.</p>
-	        </button>       
-	        <button>
-	            <h3>상업 인테리어</h3>
-	            <p>상업 공간을 고객의 비즈니스에 맞게 설계합니다.</p>
-	        </button>
-        </section>    
+	<div class="container">
+		<div class="image-section">
+			<section class="intro" style="text-align: center;">
+				<img src="./maincenter.png">
+			</section>
+			<br> <br>
+			<section class="intro1" style="text-align: center;">
+				<h2>환영합니다! 고객님!</h2>
+				<p style="font-size: 1.3em;">계약 중개로 인테리어 고객의 편의성과 만족도를 높이는 것을 목표로 합니다</p>
+			</section>
+		</div>
+		<div class="login-form">
+  			<div class="jumbotron">
+	  			<form method="post" action="loginAction.jsp">
+	  				<h3 style="text-align: center;">로그인</h3>
+	  				<div class="form-group">
+	  					<input type="text" class="form-control" placeholder="아이디" name="id" maxlength="20">
+	  				</div>
+	  				<div class="form-group">
+	  					<input type="password" class="form-control" placeholder="비밀번호" name="pw" maxlength="20">
+	  				</div>
+	  				<input type="submit" class="btn btn-primary form-control" value="로그인">
+	  			</form>
+  			</div>
+  		</div>
 	</div>
 </body>
 </html>
