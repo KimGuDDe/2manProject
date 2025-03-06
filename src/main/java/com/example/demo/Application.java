@@ -8,6 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @ComponentScan({"data.*","*.controller","com.example.demo","naver.storage","naver.aiservice"})
 @MapperScan({"data.mapper"})
+
 public class Application {
 
 	public static void main(String[] args) {
