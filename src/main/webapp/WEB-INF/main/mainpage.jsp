@@ -58,16 +58,38 @@ body * {
 		</div>
 		<div class="login-form">
   			<div class="jumbotron">
-	  			<form method="post" action="loginAction.jsp">
-	  				<h3 style="text-align: center;">로그인</h3>
-	  				<div class="form-group">
-	  					<input type="text" class="form-control" placeholder="아이디" name="id" maxlength="20">
-	  				</div>
-	  				<div class="form-group">
-	  					<input type="password" class="form-control" placeholder="비밀번호" name="pw" maxlength="20">
-	  				</div>
-	  				<input type="submit" class="btn btn-primary form-control" value="로그인">
-	  			</form>
+	  			<form method="post" action="./login">
+	  				<table class="table table-bordered tab1">
+				<caption align="top">
+					<b>로그인</b>
+				</caption>
+				<tbody>
+					<tr>
+						<th width="200">아이디</th>
+						<td>
+							<input type="text" name="id"
+							required="required" class="form-control">
+						</td>
+					</tr>
+					<tr>
+						<th width="200">비밀번호</th>
+						<td>
+							<input type="password" name="pw"
+							required="required" class="form-control">
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center">
+							<button type="button" class="btn btn-sm btn-success"
+							onclick="location.href='/login'">
+							로그인</button>
+							<button type="button" class="btn btn-sm btn-danger"
+							onclick="location.href='/register'">
+							회원가입</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
   			</div>
   		</div>
 	</div>
