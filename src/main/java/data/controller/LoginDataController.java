@@ -69,7 +69,7 @@ public class LoginDataController {
 
     @GetMapping("/login")
     public String showLoginForm() {
-        return "member/login";
+        return "/main/loginsuccess";
     }
 
     @PostMapping("/login")
@@ -82,8 +82,9 @@ public class LoginDataController {
         } else {
             model.addAttribute("error", "Invalid username or password");
             System.out.println("login fail");
-            return "/";
         }
+        
+        return "/";
     }  
     
 }
