@@ -64,6 +64,8 @@ public class LoginDataController {
             loginDataDto.setPhoto("no");
         }
         
+        System.out.println(photoFile);
+        
         loginDataService.insertLoginData(loginDataDto);
         return "redirect:/";
     }
