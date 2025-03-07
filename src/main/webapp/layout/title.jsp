@@ -87,7 +87,7 @@ img.profilephoto {
 					<c:set var="naverurl"
 						value="https://kr.object.ncloudstorage.com/bitcamp-bucket-103" />
 					<img class="profilephoto"
-						src="${naverurl}/2manidphoto/${sessionScope.loginUser.photo}"
+						src="${naverurl}/2manidphoto/${loggedInUser.photo}"
 						class="profilephoto" onerror="this.src='/save/noimage.png'">
 					<script type="text/javascript">
 						//로그인 상태에서 회원 사진 클릭시 이벤트
@@ -95,7 +95,7 @@ img.profilephoto {
 							location.href='/member/mypage';
 						});
 					</script>
-		            ${sessionScope.i}님이 로그인 중입니다
+		            ${loggedInUser.iusername}님이 로그인 중입니다
 		            <a href="${root}/logout" class="btn btn-sm btn-danger">로그아웃</a>
 		        </c:otherwise>
 			</c:choose>
