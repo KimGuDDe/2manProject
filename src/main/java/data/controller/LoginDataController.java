@@ -79,7 +79,7 @@ public class LoginDataController {
         if (user != null) {
             model.addAttribute("user", user);
         }
-        return "main/mainpage"; // index.jsp 렌더링....
+        return "main/mainpage"; // index.jsp 렌더링 check 살아있음 확인용
     }
 
     @PostMapping("/login")
