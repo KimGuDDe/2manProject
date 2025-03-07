@@ -83,12 +83,15 @@ public class LoginDataController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam String iusername, @RequestParam String ipassword, 
-                        HttpSession session, HttpServletResponse response) throws IOException {
+    public String login(@RequestParam String iusername, @RequestParam String ipassword,
+    					HttpSession session, HttpServletResponse response) throws IOException {
         LoginDataDto user = loginDataService.login(iusername, ipassword);
         if (user != null) {
+        	session.setMaxInactiveInterval(60*60*4); //4시간 유지
             session.setAttribute("loginstatus", true);
             session.setAttribute("loggedInUser", user);
+            session.setAttribute("iusername", iusername);             
+            
             return "redirect:/loginsuccess";
         } else {
             return "redirect:/login?error";

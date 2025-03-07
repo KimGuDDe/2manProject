@@ -11,6 +11,6 @@ public interface LoginDataMapper {
     public LoginDataDto findById(String id);
     public LoginDataDto findByUsername(String iusername);
     public LoginDataDto findByUsernameAndPassword(String iusername, String ipassword);
-    public int checkMyid(String id);    
+    public int checkMyid(String id);
 }
 

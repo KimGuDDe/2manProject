@@ -5,8 +5,7 @@
 		INSERT INTO logindata (id, iusername, ipassword, photo, writeday)
 		VALUES (#{id}, #{iusername}, #{ipassword}, #{photo}, NOW())
 	</insert>
-	<select id="findById" parameterType="string"
-		resultType="LoginDataDto">
+	<select id="findById" parameterType="string" resultType="LoginDataDto">
 		SELECT * FROM logindata WHERE id = #{id}
 	</select>
 	<select id="findByUsername" parameterType="string" resultType="LoginDataDto">
@@ -17,5 +16,5 @@
 	</select>
 	<select id="checkMyid" parameterType="String" resultType="int">
 		select count(*) from logindata where id=#{id}
-	</select>
+	</select>	
 </mapper>
