@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import data.dto.LoginDataDto;
 import data.service.LoginDataService;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import naver.storage.NcpObjectStorageService;
 
@@ -69,7 +70,16 @@ public class LoginDataController {
 
     @GetMapping("/login")
     public String showLoginForm() {
-        return "/main/loginsuccess";
+        return "/";
+    }
+    
+    @GetMapping("/")
+    public String home(Model model, HttpSession session) {
+        LoginDataDto user = (LoginDataDto) session.getAttribute("loggedInUser");
+        if (user != null) {
+            model.addAttribute("user", user);
+        }
+        return "main/mainpage"; // index.jsp 렌더링
     }
 
     @PostMapping("/login")
@@ -78,7 +88,7 @@ public class LoginDataController {
         if (user != null) {
             model.addAttribute("user", user);
             System.out.println("login success");
-            return "/";
+            return "main/loginsuccess";
         } else {
             model.addAttribute("error", "Invalid username or password");
             System.out.println("login fail");
@@ -86,7 +96,7 @@ public class LoginDataController {
     
         System.out.println("user:"+user);
         
-        return "/";
+        return "main/mainpage";
     }  
     
 }
