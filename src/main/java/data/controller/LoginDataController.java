@@ -1,5 +1,6 @@
 package data.controller;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -16,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import data.dto.LoginDataDto;
 import data.service.LoginDataService;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import naver.storage.NcpObjectStorageService;
@@ -24,7 +26,7 @@ import naver.storage.NcpObjectStorageService;
 @RequiredArgsConstructor
 public class LoginDataController {
     
-    private final LoginDataService loginDataService;
+    private final LoginDataService loginDataService;    
     
     @Autowired
     private final NcpObjectStorageService storageService;
@@ -37,23 +39,21 @@ public class LoginDataController {
         return "/member/register";
     }
     
-  //아이디가 존재하면 result 에 fail 를 ,존재하지 않으면 success 를 보내기
-  	@GetMapping("/idcheck")
-  	@ResponseBody
-  	public Map<String, String> idCheck(@RequestParam String id)
-  	{
-  		Map<String, String> map=new HashMap<>();
-  		if(loginDataService.isMyidCheck(id))
-  			map.put("result", "fail");
-  		else
-  			map.put("result", "success");
-  		return map;
-  	}
+    @GetMapping("/idcheck")
+    @ResponseBody
+    public Map<String, String> idCheck(@RequestParam String id) {
+        Map<String, String> map = new HashMap<>();
+        if(loginDataService.isMyidCheck(id))
+            map.put("result", "fail");
+        else
+            map.put("result", "success");
+        return map;
+    }
 
     @PostMapping("/register")
     public String registerUser(@ModelAttribute("loginData") LoginDataDto loginDataDto,
                                @RequestParam(value="photoFile", required=false) MultipartFile photoFile) {
-        if (photoFile!=null && !photoFile.isEmpty()) {
+        if (photoFile != null && !photoFile.isEmpty()) {
             String originalFilename = photoFile.getOriginalFilename();
             String fileExtension = originalFilename.substring(originalFilename.lastIndexOf("."));
             String newFilename = UUID.randomUUID().toString() + fileExtension;
@@ -70,7 +70,7 @@ public class LoginDataController {
 
     @GetMapping("/login")
     public String showLoginForm() {
-        return "/";
+        return "main/mainpage";
     }
     
     @GetMapping("/")
@@ -79,24 +79,37 @@ public class LoginDataController {
         if (user != null) {
             model.addAttribute("user", user);
         }
-        return "main/mainpage"; // index.jsp 렌더링
+        return "main/mainpage"; // index.jsp 렌더링 kim merge 확인용
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam String iusername, @RequestParam String ipassword, Model model) {
+    public String login(@RequestParam String iusername, @RequestParam String ipassword, 
+                        HttpSession session, HttpServletResponse response) throws IOException {
         LoginDataDto user = loginDataService.login(iusername, ipassword);
         if (user != null) {
+            session.setAttribute("loginstatus", true);
+            session.setAttribute("loggedInUser", user);
+            return "redirect:/loginsuccess";
+        } else {
+            return "redirect:/login?error";
+        }
+    }
+
+    @GetMapping("/loginsuccess")
+    public String loginSuccess(HttpSession session, Model model) {
+        LoginDataDto user = (LoginDataDto) session.getAttribute("loggedInUser");
+        if (user != null) {
             model.addAttribute("user", user);
-            System.out.println("login success");
             return "main/loginsuccess";
         } else {
-            model.addAttribute("error", "Invalid username or password");
-            System.out.println("login fail");
+            return "redirect:/login";
         }
-    
-        System.out.println("user:"+user);
-        
-        return "main/mainpage";
-    }  
-    
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "redirect:/";
+    }
+    //커밋 확인용
 }
