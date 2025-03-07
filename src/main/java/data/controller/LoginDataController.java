@@ -111,4 +111,5 @@ public class LoginDataController {
         session.invalidate();
         return "redirect:/";
     }
+    //커밋 확인용
 }
