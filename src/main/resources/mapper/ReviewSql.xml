@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="data.mapper.ReviewMapper">
-	
+	<insert id="insertReviewHong" parameterType="ReviewDto">
+		insert into review (name, content, designer) values (#{name}, #{content}, "홍길동")
+	</insert>
+	<insert id="insertReviewKim" parameterType="ReviewDto">
+		insert into review (name, content, designer) values (#{name}, #{content}, "김철수")
+	</insert>
+	<insert id="insertReviewLee" parameterType="ReviewDto">
+		insert into review (name, content, designer) values (#{name}, #{content}, "이영희")
+	</insert>
+	<select id="getSelectHong" resultType="ReviewDto">
+		select * from review where designer="홍길동" order by renum desc limit 5
+	</select>
+	<select id="getSelectKim" resultType="ReviewDto">
+		select * from review where designer="김철수" order by renum desc limit 5
+	</select>
+	<select id="getSelectLee" resultType="ReviewDto">
+		select * from review where designer="이영희" order by renum desc limit 5
+	</select>
 </mapper>

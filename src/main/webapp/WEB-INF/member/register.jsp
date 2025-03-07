@@ -92,7 +92,7 @@ let jungbok=false;
 			<tbody>
 				<tr>
 					<td width="150" rowspan="4">
-						<input type="file" name="upload" style="width: 100px;"
+						<input type="file" name="photoFile" style="width: 100px;"
 						onchange="preview(this)">
 						<br>
 						<img src="" id="showimg" onerror="this.src='../save/noimage.png'">
