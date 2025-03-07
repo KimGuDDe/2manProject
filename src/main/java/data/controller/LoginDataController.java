@@ -74,12 +74,12 @@ public class LoginDataController {
     }
     
     @GetMapping("/")
-    public String home(HttpSession session) {
-        if (session.getAttribute("loginstatus") != null) {
-            return "main/loginsuccess";
-        } else {
-            return "main/mainpage";
-            }       
+    public String home(Model model, HttpSession session) {
+        LoginDataDto user = (LoginDataDto) session.getAttribute("loggedInUser");
+        if (user != null) {
+            model.addAttribute("user", user);
+        }
+        return "main/mainpage"; // index.jsp 렌더링 kim merge 확인용
     }
 
     @PostMapping("/login")
