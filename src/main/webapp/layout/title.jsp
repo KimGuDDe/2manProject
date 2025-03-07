@@ -62,7 +62,7 @@
 				<a href="${root}/">Home</a>
 			</li>
 			<li>
-				<a href="${root}/naver/papago">후기</a>
+				<a href="${root}/review">후기</a>
 			</li>
 			<c:if test="${sessionScope.loginstatus != null}">
 			    <li>
@@ -82,7 +82,7 @@
 		        <c:otherwise>
 		        	<c:set var="naverurl" value="https://kr.object.ncloudstorage.com/bitcamp-bucket-140"/>
 		        	<img class="profilephoto" src="${naverurl}/member/${sessionScope.loginUser.mphoto}" class="profilephoto"
-		        	onerror="this.src='/save/noimage.png'">
+		        	onerror="this.src='./noimage.png'">
 		        	<script type="text/javascript">
 						//로그인 상태에서 회원 사진 클릭시 이벤트
 						$(".profilephoto").click(function(){
