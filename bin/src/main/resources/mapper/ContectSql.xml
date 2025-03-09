@@ -4,8 +4,5 @@
 	<insert id="insertContect" parameterType="ContectDto">
 		INSERT INTO contect (cname,cemail,csubject,cmessage)
 		VALUES (#{cname}, #{cemail}, #{csubject}, #{cmessage})
-	</insert>
-	<select id="getSelectContect" resultType="ContectDto">
-		select * from contect order by num desc
-	</select>	
+	</insert>	
 </mapper>
