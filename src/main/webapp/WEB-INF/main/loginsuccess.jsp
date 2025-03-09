@@ -185,8 +185,7 @@ body {
 			<section class="intro">
 				<img src="./maincenter.png" alt="메인 이미지">
 			</section>
-			<br>
-			<br>
+			<br> <br>
 			<section class="intro1">
 				<h2>환영합니다! 고객님!</h2>
 				<p>계약 중개로 인테리어 고객의 편의성과 만족도를 높이는 것을 목표로 합니다</p>
@@ -206,68 +205,91 @@ body {
 				</section>
 			</div>
 		</div>
-	</div>	
-	<section id="contact-section" style="height: 100; background-color: #dcdcdc;">
-	<div class="contact-section">
-		<br><br><br>
-		<h1 style="text-align: center">Contect Us</h1>
-		<form id="contactForm" action="#" method="post" onsubmit="return validateForm()">
-			<div>
-				<label>이름(name) :</label>
-				<input type="text" name="cname" required>
-				<div class="error" id="firstNameError">Enter your name.</div>
-			</div>
-			<div>
-				<label>이메일(E-mail) :</label>
-				<input type="email" name="cemail" required>
-			</div>
-			<div>
-				<label>제목(Subject) :</label>
-				<input type="text" name="csubject">
-			</div>
-			<div>
-				<label>내용(Message) :</label>
-				<textarea name="cmessage" rows="4"></textarea>
-			</div>
-			<button type="submit">제 출</button>
-		</form>
-		<script>
-                function validateForm() {
-                    const firstName = document.querySelector('input[name="firstName"]');
-                    const error = document.getElementById('firstNameError');
-                    if (!firstName.value.trim()) {
-                        error.style.display = 'block';
-                        return false;
-                    } else {
-                        error.style.display = 'none';
-                        return true;
-                    }
-                }
-                
-                $(document).ready(function () {
-                    $("#contactForm").on("submit", function (e) {
-                        e.preventDefault(); // 기본 폼 제출 방지
-
-                        // 폼 데이터 수집
-                        const formData = $(this).serialize();
-
-                        // AJAX 요청
-                        $.ajax({
-                            url: "/contect", // 컨트롤러 URL
-                            type: "POST",
-                            data: formData,
-                            success: function (response) {
-                                $("#responseMessage").show().text("폼이 성공적으로 제출되었습니다!");
-                                $("#contactForm")[0].reset(); // 폼 초기화
-                            },
-                            error: function () {
-                                alert("폼 제출 중 오류가 발생했습니다.");
-                            }
-                        });
-                    });
-                });
-            </script>
 	</div>
+	<section id="contact-section"
+		style="height: 100; background-color: #dcdcdc;">
+		<div class="contact-section">
+			<br>
+			<br>
+			<br>
+			<h1 style="text-align: center">Contect Us</h1>
+			<form id="contactForm" action="#" method="post"
+				onsubmit="return validateForm()">
+				<div>
+					<label>이름(name) :</label> <input type="text" name="cname" required>
+					<div class="error" id="firstNameError">Enter your name.</div>
+				</div>
+				<div>
+					<label>이메일(E-mail) :</label> <input type="email" name="cemail"
+						required>
+				</div>
+				<div>
+					<label>제목(Subject) :</label> <input type="text" name="csubject">
+				</div>
+				<div>
+					<label>내용(Message) :</label>
+					<textarea name="cmessage" rows="4"></textarea>
+				</div>
+				<div>
+					<button type="submit">제 출</button>
+					<button type="button" onclick="moveToKakaoTalk()">온라인 상담</button>
+				</div>
+			</form>
+			<script>
+				function moveToKakaoTalk() {
+					window.location.href = 'http://pf.kakao.com/_grDGn';
+				}
+
+				function validateForm() {
+					const firstName = document
+							.querySelector('input[name="firstName"]');
+					const error = document.getElementById('firstNameError');
+					if (!firstName.value.trim()) {
+						error.style.display = 'block';
+						return false;
+					} else {
+						error.style.display = 'none';
+						return true;
+					}
+				}
+
+				$(document)
+						.ready(
+								function() {
+									$("#contactForm")
+											.on(
+													"submit",
+													function(e) {
+														e.preventDefault(); // 기본 폼 제출 방지
+
+														// 폼 데이터 수집
+														const formData = $(this)
+																.serialize();
+
+														// AJAX 요청
+														$
+																.ajax({
+																	url : "/contect", // 컨트롤러 URL
+																	type : "POST",
+																	data : formData,
+																	success : function(
+																			response) {
+																		$(
+																				"#responseMessage")
+																				.show()
+																				.text(
+																						"폼이 성공적으로 제출되었습니다!");
+																		$("#contactForm")[0]
+																				.reset(); // 폼 초기화
+																	},
+																	error : function() {
+																		alert("폼 제출 중 오류가 발생했습니다.");
+																	}
+																});
+													});
+								});
+			</script>
+		</div>
 	</section>
 </body>
 </html>

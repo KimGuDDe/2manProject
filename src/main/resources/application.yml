@@ -19,4 +19,4 @@ spring:
 mybatis:
   type-aliases-package: data.dto
   mapper-locations:
-  - /mapper/**/*.xml
+  - classpath:data/mapper/*.xml
