@@ -139,6 +139,7 @@ let jungbok=false;
 						placeholder="비밀번호1" required="required">
 						<input type="password" name="ipassword2" id="ipassword2" class="form-control"
 						placeholder="비밀번호2" required="required">
+						
 					</td>
 				</tr>			
 				<tr>
