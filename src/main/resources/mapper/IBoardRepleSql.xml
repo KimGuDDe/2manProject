@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="data.mapper.IBoardRepleMapper">
+	<insert id="insertReple" parameterType="IBoardRepleDto">
+        insert into iboardreple (idx, myid, message, photo, writeday)
+        values (#{idx}, #{myid}, #{message}, #{photo}, now())
+    </insert>
+    <select id="getReples" parameterType="int" resultType="IBoardRepleDto">
+        select * from iboardreple where idx = #{idx} order by writeday desc
+    </select>
+    <select id="getRepleByNum" parameterType="int" resultType="IBoardRepleDto">
+    select * from iboardreple where num = #{num}
+    </select>
+    <delete id="deleteReple" parameterType="int">
+        delete from iboardreple where num = #{num}
+    </delete>
+    <update id="updateReple" parameterType="IBoardRepleDto">
+    	UPDATE iboardreple SET message = #{message} <if test="photo != null">, photo = #{photo}</if> WHERE num = #{num}
+    </update>  
+</mapper>
