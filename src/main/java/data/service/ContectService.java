@@ -1,5 +1,7 @@
 package data.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import data.dto.ContectDto;
@@ -14,5 +16,10 @@ public class ContectService {
 	public void insertContect(ContectDto contectDto)
 	{
 		contectMapper.insertContect(contectDto);
+	}
+	
+	public List<ContectDto> getSelectContect()
+	{
+		return contectMapper.getSelectContect();
 	}
 }

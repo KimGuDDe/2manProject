@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="data.mapper.LoginDataMapper">
+	<insert id="insertLoginData" parameterType="LoginDataDto">
+		INSERT INTO logindata (id, iusername, ipassword, photo, writeday)
+		VALUES (#{id}, #{iusername}, #{ipassword}, #{photo}, NOW())
+	</insert>
+	<select id="findById" parameterType="string" resultType="LoginDataDto">
+		SELECT * FROM logindata WHERE id = #{id}
+	</select>
+	<select id="findByUsername" parameterType="string" resultType="LoginDataDto">
+		SELECT * FROM logindata WHERE iusername = #{iusername}
+	</select>
+	<select id="findByUsernameAndPassword" resultType="LoginDataDto">
+    SELECT * FROM logindata WHERE iusername = #{iusername} AND ipassword = #{ipassword}
+	</select>
+	<select id="checkMyid" parameterType="String" resultType="int">
+		select count(*) from logindata where id=#{id}
+	</select>	
+</mapper>
