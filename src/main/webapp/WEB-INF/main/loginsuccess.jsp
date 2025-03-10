@@ -174,9 +174,7 @@ body {
 }
 </style>
 <!-- Google Fonts 추가 (모던한 느낌을 위해) -->
-<link
-	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap@300&family=Yesteryear&display=swap"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap@300&family=Yesteryear&display=swap" rel="stylesheet">
 </head>
 <body>
 	<jsp:include page="../../layout/title.jsp" />
@@ -247,7 +245,9 @@ body {
                     }
                 }
                 
-                $(document).ready(function () {
+                $(document).ready(function
+                		
+                		() {
                     $("#contactForm").on("submit", function (e) {
                         e.preventDefault(); // 기본 폼 제출 방지
 
