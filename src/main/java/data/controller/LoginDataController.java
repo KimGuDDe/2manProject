@@ -116,5 +116,15 @@ public class LoginDataController {
         session.invalidate();
         return "redirect:/";
     }
+    
+    @GetMapping("/in")
+    public String showInPage() {
+        return "interhome.html";
+    }
+    
+    @GetMapping("/out")
+    public String showoutPage() {
+        return "out.html";
+    }
     //커밋 확인용
 }

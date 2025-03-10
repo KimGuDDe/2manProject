@@ -17,16 +17,16 @@ import lombok.RequiredArgsConstructor;
 @Controller
 @RequiredArgsConstructor
 public class ReviewController {
-	
+
 	private final ReviewService reviewService;
-	
-	
+
+
 	@GetMapping("/review")
 	public String Review()
 	{
 		return "review/review";
 	}
-	
+
 	@PostMapping("/review/insertHong")
 	@ResponseBody
 	public String insertReviewHong(@RequestBody ReviewDto reviewDto)
@@ -34,14 +34,14 @@ public class ReviewController {
 		reviewService.insertReviewHong(reviewDto);
 		return "success";
 	}
-	
+
 	//수정하고 나면 jsp의 테이블 부분에 들어가도록
 	@GetMapping("/review/listHong")
 	@ResponseBody
 	public List<ReviewDto> getReviewListHong() {
-	    return reviewService.getSelectHong();
+		return reviewService.getSelectHong();
 	}
-	
+
 	@PostMapping("/review/insertKim")
 	@ResponseBody
 	public String insertReviewKim(@RequestBody ReviewDto reviewDto)
@@ -49,14 +49,14 @@ public class ReviewController {
 		reviewService.insertReviewKim(reviewDto);
 		return "success";
 	}
-	
+
 	//수정하고 나면 jsp의 테이블 부분에 들어가도록
 	@GetMapping("/review/listKim")
 	@ResponseBody
 	public List<ReviewDto> getReviewListKim() {
-	    return reviewService.getSelectKim();
+		return reviewService.getSelectKim();
 	}
-	
+
 	@PostMapping("/review/insertLee")
 	@ResponseBody
 	public String insertReviewLee(@RequestBody ReviewDto reviewDto)
@@ -64,11 +64,11 @@ public class ReviewController {
 		reviewService.insertReviewLee(reviewDto);
 		return "success";
 	}
-	
+
 	//수정하고 나면 jsp의 테이블 부분에 들어가도록
-		@GetMapping("/review/listLee")
-		@ResponseBody
-		public List<ReviewDto> getReviewListLee() {
-			return reviewService.getSelectLee();
-		}
+	@GetMapping("/review/listLee")
+	@ResponseBody
+	public List<ReviewDto> getReviewListLee() {
+		return reviewService.getSelectLee();
+	}
 }

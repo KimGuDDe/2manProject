@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실내 인테리어 소개</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<style>
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: relative; /* 상대 위치로 설정 */
+}
+
+.back-button {
+    position: absolute; /* 절대 위치로 설정 */
+    top: 20px;
+    right: 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.back-button:hover {
+    background-color: #2980b9;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+.intro {
+    margin-bottom: 40px;
+}
+
+.image-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.service-section ul, .benefit-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.service-section li, .benefit-section li {
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    clear: both;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+    .back-button {
+        top: 10px;
+        right: 10px;
+    }
+}
+
+</style>
+<body>
+    <header>
+        <h1>실내 인테리어 소개</h1>
+        <button type="button" class="back-button" onclick="history.back()">이전 페이지로</button>
+    </header>
+    
+    <div class="container">
+        <section class="intro">
+            <h2>Ncloud 인테리어가 제시하는 방향성?</h2>
+            <p>인테리어는 공간의 기능성과 미적 감각을 동시에 고려하여, 사용자에게 편안하고 아름다운 환경을 제공하는 것입니다.</p>
+        </section>
+        
+        <section class="image-section">
+            <img src="./portfolio1_1.jpg" alt="실내 인테리어 이미지">
+        </section>
+        
+        <section class="service-section">
+            <h2>서비스</h2>
+            <ul>
+                <li>주거 공간 디자인</li>                
+                <li>리모델링 및 인테리어 컨설팅</li>
+            </ul>
+        </section>
+        
+        <section class="benefit-section">
+            <h2>인테리어의 장점</h2>
+            <ul>
+                <li>생활의 질 향상</li>
+                <li>공간 활용성 증대</li>
+                <li>재산 가치 상승</li>
+            </ul>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Ncloud 실내 인테리어 소개</p>
+    </footer>
+</body>
+</html>

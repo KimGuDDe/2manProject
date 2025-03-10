@@ -199,7 +199,7 @@ body {
 						<h3>주거 인테리어</h3>
 						<p>주거 공간을 아름답고 실용적으로 디자인합니다.</p>
 					</button>
-					<button class="menu2">
+					<button class="menu2" onclick="location.href='./out.html'">
 						<h3>상업 인테리어</h3>
 						<p>상업 공간을 고객의 비즈니스에 맞게 설계합니다.</p>
 					</button>
