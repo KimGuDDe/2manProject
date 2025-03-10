@@ -8,24 +8,24 @@
 <head>
 <meta charset="UTF-8">
 <title>Register</title>
-<link
-	href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Gaegu&family=Jua&family=Nanum+Pen+Script&family=Playwrite+AU+SA:wght@100..400&family=Single+Day&display=swap"
-	rel="stylesheet">
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap@300&family=Yesteryear&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
 <style type="text/css">
-body * {
-	font-family: 'Jua';
-}
-
-.container {
-	display: flex;
-	height: 100vh;
-}
+	body * {
+		font-family: 'Noto Sans KR', sans-serif;
+		margin: 0;
+		padding: 0;
+		background: #f5f5f5;
+		color: #333;
+	}
+	
+	.container {
+		display: flex;
+		height: 100vh;
+	}
 </style>
 </head>
 <script type="text/javascript">
@@ -95,7 +95,8 @@ let jungbok=false;
 						<input type="file" name="photoFile" style="width: 100px;"
 						onchange="preview(this)">
 						<br>
-						<img src="" id="showimg" onerror="this.src='../save/noimage.png'">
+						<img src="" id="showimg" style="width: 200px; height: 150px; object-fit: contain;"
+						onerror="this.src='../save/noimage.png'">
 						
 						<!-- 파일 선택시 제이쿼리로 미리보기 코드 -->
 						<script>
