@@ -210,7 +210,7 @@ body {
 	<section id="contact-section" style="height: 100; background-color: #dcdcdc;">
 	<div class="contact-section">
 		<br><br><br>
-		<h1 style="text-align: center">Contect Us</h1>
+		<h1 style="text-align: center">Contact Us</h1>
 		<form id="contactForm" action="#" method="post" onsubmit="return validateForm()">
 			<div>
 				<label>이름(name) :</label>
