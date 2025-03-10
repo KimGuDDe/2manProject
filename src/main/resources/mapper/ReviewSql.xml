@@ -19,4 +19,7 @@
 	<select id="getSelectLee" resultType="ReviewDto">
 		select * from review where designer="이영희" order by renum desc limit 5
 	</select>
+	<select id="getReviewList" resultType="ReviewDto">
+    	select renum, name, content, designer from review order by renum desc
+	</select>
 </mapper>
