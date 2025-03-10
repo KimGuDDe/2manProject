@@ -14,5 +14,5 @@ public interface ReviewMapper {
 	public List<ReviewDto> getSelectHong();
 	public List<ReviewDto> getSelectKim();
 	public List<ReviewDto> getSelectLee();
-
+	public List<ReviewDto> getReviewList();
 }

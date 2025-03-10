@@ -39,5 +39,9 @@ public class ReviewService {
 	public List<ReviewDto> getSelectLee()
 	{
 		return reviewMapper.getSelectLee();
+	}	
+	public List<ReviewDto> getReviewList()
+	{		
+	    return reviewMapper.getReviewList();
 	}
 }
