@@ -229,7 +229,10 @@ body {
 				<label>내용(Message) :</label>
 				<textarea name="cmessage" rows="4"></textarea>
 			</div>
-			<button type="submit">제 출</button>
+		<div>
+		<button type="submit">제 출</button>
+		<button type="button" onclick="location.href='http://pf.kakao.com/_grDGn'">온라인 상담</button>
+		</div>
 		</form>
 		<script>
                 function validateForm() {
